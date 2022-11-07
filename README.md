@@ -1,2 +1,3 @@
 # ohtu_palautusrepositorio
-Ohjelmistotuotantokurssin tehtävien palautusrepositorio
+
+https://github.com/JanneKarki/ohtuvarasto
