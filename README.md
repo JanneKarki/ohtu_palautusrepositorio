@@ -1,2 +1,2 @@
 # ohtu_palautusrepositorio
-Ohjelmistotuotanto kurssin tehtävien palautusrepositorio
+Ohjelmistotuotantokurssin tehtävien palautusrepositorio
