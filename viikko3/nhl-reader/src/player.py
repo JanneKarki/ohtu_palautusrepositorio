@@ -1,9 +1,10 @@
 class Player:
-    def __init__(self, name, team, goals, assists, points):
+    def __init__(self, name, team, goals, assists, nationality, points):
         self.name = name
         self.team = team
         self.goals = goals
         self.assists = assists
+        self.nationality = nationality
         self.points = points
     
     def __str__(self):
