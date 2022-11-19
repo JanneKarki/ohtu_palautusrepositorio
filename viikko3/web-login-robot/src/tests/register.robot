@@ -21,8 +21,11 @@ Register With Too Short Username And Valid Password
 # ...
 
 Register With Valid Username And Too Short Password
+    Set Username  janne
+    Set Password  jk123
+    Submit Credentials
+    Register Should Fail With Message  Password length must be at least 8 characters long
 
-# ...
 
 Register With Nonmatching Password And Password Confirmation
 # ...
