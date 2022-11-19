@@ -41,8 +41,7 @@ class UserService:
             raise UserInputError("Username and password are required")
 
         if not re.match("^[a-z]+$", username):
-            raise UserInputError(
-                "Username must contain only letters a-z")
+            raise UserInputError("Username must contain only letters a-z")
 
         if len(username) < 3:
             raise UserInputError("Username must have at least 3 characters")
@@ -51,8 +50,10 @@ class UserService:
             raise UserInputError("Password length must be at least 8 characters long")
 
         if re.match("^[a-z]+$", password):
-            raise UserInputError(
-                "Password contain only letters a-z")
+            raise UserInputError("Password contain only letters a-z")
+
+        if password != password_confirmation:
+            raise UserInputError("Different passwords")
 
         # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
 
