@@ -39,3 +39,19 @@ Go To Register Page
 
 Welcome Page Should Be Open
     Title Should Be  Welcome to Ohtu Application!
+
+Register Should Succeed
+    Welcome Page Should Be Open
+
+Submit Credentials For Register
+    Click Button  Register
+
+Register Should Fail With Message
+    [Arguments]  ${message}
+    Register Page Should Be Open
+    Page Should Contain  ${message}
+
+Password Confirmation
+    [Arguments]  ${password}
+    Input Password  password_confirmation  ${password}
+
