@@ -24,4 +24,20 @@ class TestKassapaate(unittest.TestCase):
 
         maksukortti_mock.osta.assert_not_called()
 
+
+    def test_lataa_summa_kortille_jos_suurempi_kuin_nolla(self):
+        maksukortti_mock = Mock()
+        maksukortti_mock.saldo = 0
+
+        self.kassa.lataa(maksukortti_mock, 5)
+
+        maksukortti_mock.lataa.assert_called_with(5)
+
+    def test_ei_lataa_summaa_kortille_jos_pienempi_kuin_nolla(self):
+        maksukortti_mock = Mock()
+        maksukortti_mock.saldo = 0
+
+        self.kassa.lataa(maksukortti_mock,-5)
+
+        maksukortti_mock.lataa.assert_not_called()
     
