@@ -22,4 +22,4 @@ class TestKassapaate(unittest.TestCase):
         
         self.kassa.osta_lounas(maksukortti_mock)
 
-        maksukortti_mock.osta.assert_not_called()
+        maksukortti_mock.osta.assert_called_with(HINTA)
