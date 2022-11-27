@@ -10,11 +10,14 @@ class TestKauppa(unittest.TestCase):
         self.pankki_mock = Mock()
         self.viitegeneraattori_mock = Mock()
         self.varasto_mock = Mock()
-        self.viite_mock = self.viitegeneraattori_mock.uusi.return_value = 42
+        self.viitegeneraattori_mock.uusi.return_value = 42
 
     def test_ostoksen_paaytyttya_pankin_metodia_tilisiirto_kutsutaan(self):
         
-        
+
+        # palautetaan aina arvo 42
+
+
         varasto_mock = Mock()
 
         # tehdään toteutus saldo-metodille
@@ -68,7 +71,7 @@ class TestKauppa(unittest.TestCase):
         kauppa.tilimaksu("pekka", "12345")
 
         # varmistetaan, että metodia tilisiirto on kutsuttu
-        self.pankki_mock.tilisiirto.assert_called_with("pekka", self.viite_mock, "12345", "33333-44455",5)
+        self.pankki_mock.tilisiirto.assert_called_with("pekka", 42, "12345", "33333-44455",5)
 
 
     def test_ostettaessa_kaksi_eri_tuotetta_tilisiirtoa_kutsutaan_oikeilla_arvoilla(self):
@@ -100,7 +103,7 @@ class TestKauppa(unittest.TestCase):
         kauppa.tilimaksu("pekka", "12345")
 
         # varmistetaan, että metodia tilisiirto on kutsuttu
-        self.pankki_mock.tilisiirto.assert_called_with("pekka", self.viite_mock, "12345", "33333-44455",11)
+        self.pankki_mock.tilisiirto.assert_called_with("pekka", 42, "12345", "33333-44455",11)
 
 
     def test_ostettaessa_kaksi_samaa_tuotetta_tilisiirtoa_kutsutaan_oikeilla_arvoilla(self):
@@ -129,7 +132,7 @@ class TestKauppa(unittest.TestCase):
         kauppa.tilimaksu("pekka", "12345")
 
         # varmistetaan, että metodia tilisiirto on kutsuttu
-        self.pankki_mock.tilisiirto.assert_called_with("pekka", self.viite_mock, "12345", "33333-44455",10)
+        self.pankki_mock.tilisiirto.assert_called_with("pekka", 42, "12345", "33333-44455",10)
 
 
     def test_ostettaessa_kaksi_eri_tuotetta_joista_toinen_on_loppu_tilisiirtoa_kutsutaan_oikeilla_arvoilla(self):
@@ -161,4 +164,4 @@ class TestKauppa(unittest.TestCase):
         kauppa.tilimaksu("pekka", "12345")
 
         # varmistetaan, että metodia tilisiirto on kutsuttu
-        self.pankki_mock.tilisiirto.assert_called_with("pekka", self.viite_mock, "12345", "33333-44455",5)
+        self.pankki_mock.tilisiirto.assert_called_with("pekka", 42, "12345", "33333-44455",5)
