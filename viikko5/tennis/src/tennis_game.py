@@ -20,16 +20,8 @@ class TennisGame:
             score = self.scores_are_equal(score)
            
         elif self.player1_score >= 4 or self.player2_score >= 4:
-            minus_result = self.player1_score - self. player2_score
-
-            if minus_result == 1:
-                score = "Advantage player1"
-            elif minus_result == -1:
-                score = "Advantage player2"
-            elif minus_result >= 2:
-                score = "Win for player1"
-            else:
-                score = "Win for player2"
+            score = self.both_scores_are_at_least_four(score)
+            
         else:
             for i in range(1, 3):
                 if i == 1:
@@ -61,5 +53,19 @@ class TennisGame:
             score = "Forty-All"
         else:
             score = "Deuce"
+        
+        return score
+
+    def both_scores_are_at_least_four(self, score):
+        minus_result = self.player1_score - self. player2_score
+
+        if minus_result == 1:
+            score = "Advantage player1"
+        elif minus_result == -1:
+            score = "Advantage player2"
+        elif minus_result >= 2:
+            score = "Win for player1"
+        else:
+            score = "Win for player2"
         
         return score
