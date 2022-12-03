@@ -1,3 +1,20 @@
+
+LOVE = "Love"
+FIFTEEN = "Fifteen"
+THIRTY = "Thirty"
+FORTY = "Forty"
+
+LOVEALL = "Love-All"
+FIFTEENALL = "Fifteen-All"
+THIRTYALL = "Thirty-All"
+FORTYALL = "Forty-All"
+DEUCE = "Deuce"
+
+ADV1 = "Advantage player1"
+ADV2 = "Advantage player2"
+WIN1 = "Win for player1"
+WIN2 = "Win for player2"
+
 class TennisGame:
     def __init__(self, player1_name, player2_name):
         self.player1_name = player1_name
@@ -31,28 +48,28 @@ class TennisGame:
                     temp_score = self.player2_score
 
                 if temp_score == 0:
-                    score = score + "Love"
+                    score = score + LOVE
                 elif temp_score == 1:
-                    score = score + "Fifteen"
+                    score = score + FIFTEEN
                 elif temp_score == 2:
-                    score = score + "Thirty"
+                    score = score + THIRTY
                 elif temp_score == 3:
-                    score = score + "Forty"
+                    score = score + FORTY
 
         return score
 
     def scores_are_equal(self, score):
 
         if self.player1_score == 0:
-            score = "Love-All"
+            score = LOVEALL
         elif self.player1_score == 1:
-            score = "Fifteen-All"
+            score = FIFTEENALL
         elif self.player1_score == 2:
-            score = "Thirty-All"
+            score = THIRTYALL
         elif self.player1_score == 3:
-            score = "Forty-All"
+            score = FORTYALL
         else:
-            score = "Deuce"
+            score = DEUCE
         
         return score
 
@@ -60,12 +77,12 @@ class TennisGame:
         minus_result = self.player1_score - self. player2_score
 
         if minus_result == 1:
-            score = "Advantage player1"
+            score = ADV1
         elif minus_result == -1:
-            score = "Advantage player2"
+            score = ADV2
         elif minus_result >= 2:
-            score = "Win for player1"
+            score = WIN1
         else:
-            score = "Win for player2"
+            score = WIN2
         
         return score
