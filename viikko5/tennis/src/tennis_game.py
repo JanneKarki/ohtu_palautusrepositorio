@@ -4,10 +4,10 @@ FIFTEEN = "Fifteen"
 THIRTY = "Thirty"
 FORTY = "Forty"
 
-LOVEALL = "Love-All"
-FIFTEENALL = "Fifteen-All"
-THIRTYALL = "Thirty-All"
-FORTYALL = "Forty-All"
+LOVE_ALL = "Love-All"
+FIFTEEN_ALL = "Fifteen-All"
+THIRTY_ALL = "Thirty-All"
+FORTY_ALL = "Forty-All"
 DEUCE = "Deuce"
 
 ADV1 = "Advantage player1"
@@ -33,7 +33,7 @@ class TennisGame:
         score = ""
 
         if self.player1_score == self.player2_score:
-            score = self.scores_are_equal(score)
+            score = self.scores_are_equal(self.player1_score)
            
         elif self.player1_score >= 4 or self.player2_score >= 4:
             score = self.both_scores_are_at_least_four(score)
@@ -63,16 +63,16 @@ class TennisGame:
         return score
 
 
-    def scores_are_equal(self, score):
+    def scores_are_equal(self, player_scores):
 
-        if self.player1_score == 0:
-            score = LOVEALL
-        elif self.player1_score == 1:
-            score = FIFTEENALL
-        elif self.player1_score == 2:
-            score = THIRTYALL
-        elif self.player1_score == 3:
-            score = FORTYALL
+        if player_scores == 0:
+            score = LOVE_ALL
+        elif player_scores == 1:
+            score = FIFTEEN_ALL
+        elif player_scores == 2:
+            score = THIRTY_ALL
+        elif player_scores == 3:
+            score = FORTY_ALL
         else:
             score = DEUCE
         
