@@ -1,18 +1,43 @@
 from enum import Enum
 from tkinter import ttk, constants, StringVar
 
-
 class Komento(Enum):
     SUMMA = 1
     EROTUS = 2
     NOLLAUS = 3
     KUMOA = 4
 
+class Miinus:
+    def __init__(self, sovellus):
+        self.sovellus = sovellus
+
+    def suorita(self, luku):
+        self.sovellus.miinus(luku)
+
+class Plus:
+    def __init__(self, sovellus):
+        self.sovellus = sovellus
+
+    def suorita(self, luku):
+        self.sovellus.plus(luku)
+
+class Nollaa:
+    def __init__(self, sovellus):
+        self.sovellus = sovellus
+
+    def suorita(self, luku):
+        self.sovellus.nollaa()
 
 class Kayttoliittyma:
     def __init__(self, sovellus, root):
         self._sovellus = sovellus
         self._root = root
+
+        self.komennot = {
+                        Komento.EROTUS : Miinus(sovellus),
+                        Komento.SUMMA : Plus(sovellus),
+                        Komento.NOLLAUS : Nollaa(sovellus)
+        }
 
     def kaynnista(self):
         self._tulos_var = StringVar()
@@ -56,20 +81,23 @@ class Kayttoliittyma:
 
     def _suorita_komento(self, komento):
         arvo = 0
+        olio = self.komennot[komento]
 
         try:
             arvo = int(self._syote_kentta.get())
         except Exception:
             pass
 
-        if komento == Komento.SUMMA:
-            self._sovellus.plus(arvo)
-        elif komento == Komento.EROTUS:
-            self._sovellus.miinus(arvo)
-        elif komento == Komento.NOLLAUS:
-            self._sovellus.nollaa()
-        elif komento == Komento.KUMOA:
-            pass
+        olio.suorita(arvo)
+
+       # if komento == Komento.SUMMA:
+       #     self._sovellus.plus(arvo)
+       # elif komento == Komento.EROTUS:
+       #     self._sovellus.miinus(arvo)
+       # elif komento == Komento.NOLLAUS:
+       #     self._sovellus.nollaa()
+       # elif komento == Komento.KUMOA:
+       #     pass
 
         self._kumoa_painike["state"] = constants.NORMAL
 
