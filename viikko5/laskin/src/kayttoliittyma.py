@@ -28,6 +28,13 @@ class Nollaa:
     def suorita(self, luku):
         self.sovellus.nollaa()
 
+class Kumoa:
+    def __init__(self, sovellus):
+        self.sovellus = sovellus
+
+    def suorita(self, luku):
+        self.sovellus.kumoa()
+
 class Kayttoliittyma:
     def __init__(self, sovellus, root):
         self._sovellus = sovellus
@@ -36,7 +43,8 @@ class Kayttoliittyma:
         self.komennot = {
                         Komento.EROTUS : Miinus(sovellus),
                         Komento.SUMMA : Plus(sovellus),
-                        Komento.NOLLAUS : Nollaa(sovellus)
+                        Komento.NOLLAUS : Nollaa(sovellus),
+                        Komento.KUMOA : Kumoa(sovellus)
         }
 
     def kaynnista(self):
@@ -89,7 +97,7 @@ class Kayttoliittyma:
             pass
 
         olio.suorita(arvo)
-
+        
        # if komento == Komento.SUMMA:
        #     self._sovellus.plus(arvo)
        # elif komento == Komento.EROTUS:
@@ -107,4 +115,5 @@ class Kayttoliittyma:
             self._nollaus_painike["state"] = constants.NORMAL
 
         self._syote_kentta.delete(0, constants.END)
+
         self._tulos_var.set(self._sovellus.tulos)
