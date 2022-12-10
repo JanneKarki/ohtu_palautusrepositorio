@@ -4,3 +4,4 @@ kolmas commit
 neläjs commit
 viides commit
 kuudes commit
+seitsemäs commit
