@@ -1,7 +1,11 @@
 eka commit
+<<<<<<< HEAD
 toka commit
 kolmas commit 
 neläjs commit
 viides commit
 kuudes commit
 seitsemäs commit
+=======
+
+>>>>>>> 74bddf4f5166013698ff48724869fceae0e92859
