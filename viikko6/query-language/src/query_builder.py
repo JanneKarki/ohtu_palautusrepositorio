@@ -1,4 +1,4 @@
-from matchers import All, PlaysIn, And, HasAtLeast, HasFewerThan
+from matchers import All, PlaysIn, And, HasAtLeast, HasFewerThan, Or
 from stack import Stack
 
 
@@ -31,4 +31,8 @@ class QueryBuilder:
 
 	def hasFewerThan(self, value, attr):
 		self.stack.push(HasFewerThan(value, attr))
+		return QueryBuilder(self.stack)
+
+	def oneOf(self, *args):
+		self.stack.push(Or(*args))
 		return QueryBuilder(self.stack)
